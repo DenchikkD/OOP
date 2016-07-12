@@ -18,7 +18,7 @@ public class Task2 {
 //        }
         PrintWriter printwriter = new PrintWriter("D:\\progects/OOP/main/FileDirectory/text.txt");// якщо з true то файл дозаписується
         for (int i = 0; i < 10000; i++) {
-            printwriter.println("Hello word");
+            printwriter.println("Hello word" + i);
             printwriter.flush();
 
         }
