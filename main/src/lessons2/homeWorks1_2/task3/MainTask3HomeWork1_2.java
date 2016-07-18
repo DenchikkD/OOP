@@ -7,6 +7,6 @@ import java.io.IOException;
  */
 public class MainTask3HomeWork1_2 {
     public static void main(String[] args) throws IOException {
-        new Task3();
+      new Task3();
     }
 }
