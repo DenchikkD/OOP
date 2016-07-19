@@ -21,7 +21,7 @@ public class Task0 {
             String str = scn.nextLine();
             char[] ch = str.toCharArray();
             for (int i = 0; i < ch.length; i++) {
-                if (String.valueOf(ch[i]).equals(String.valueOf(ch[i]).toUpperCase())) {
+                if (Character.isUpperCase(ch[i])) {
                     writer.write(ch[i]);
                 }
 

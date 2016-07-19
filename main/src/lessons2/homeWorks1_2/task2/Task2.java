@@ -12,7 +12,7 @@ public class Task2 {
         FileReader reader = new FileReader("D:\\progects/OOP/main/FileDirectory/array.txt");
         Scanner scanner = new Scanner(reader);
         String str = "";
-        int td = scanner.nextLine().length();
+
         int tr = 0;
         while (scanner.hasNextLine()) {
             str += scanner.nextLine();
@@ -21,19 +21,23 @@ public class Task2 {
         }
         String[] s = str.split(";");
         String[] trs;
-//        for (int i = 0; i < s.length; i++) {
-            trs = s[0].split(" ");
+        int td = s[0].split(" ").length;
 
-            System.out.println(trs.length);
-        for (int i = 0; i <trs.length ; i++) {
-            System.out.print(trs[i]);
-
+        int[][] array = new int[tr][td];
+        for (int i = 0; i < s.length; i++) {
+            trs = s[i].split(" ");
+            for (int j = 0; j < trs.length; j++) {
+                array[i][j] = Integer.valueOf(trs[j]);
+            }
         }
+
+        for (int i = 0; i < tr; i++) {
+            for (int j = 0; j < td; j++) {
+                System.out.print(array[i][j]);
+
+            }
             System.out.println();
 
-//        }
-
-
-        System.out.println(s[0]);
+        }
     }
 }
