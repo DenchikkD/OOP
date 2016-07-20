@@ -10,8 +10,8 @@ public class Task1 {
     public static void main(String[] args) {
         int[] array = {9, 8, 7, 6, 5, 4, 3, 2, 1};
 //        bibbleSort(array);
-        selection(array);
-
+//        selection(array);
+insertion(array);
 
     }
 
@@ -22,7 +22,7 @@ public class Task1 {
             hasChange = false;
             for (int j = 0; j < array.length - 1 - i; j++) {
                 if (array[j] > array[j + 1]) {
-                    swap(array,j+1,j);
+                    swap(array, j + 1, j);
 //                    int tmp = array[j + 1];
 //                    array[j + 1] = array[j];
 //                    array[j] = tmp;
@@ -36,14 +36,14 @@ public class Task1 {
     }
 
     public static void selection(int[] array) {
-        for (int i = 0; i < array.length-1; i++) {
-            int minIdx=i;
-            for (int j = i+1; j < array.length; j++) {
+        for (int i = 0; i < array.length - 1; i++) {
+            int minIdx = i;
+            for (int j = i + 1; j < array.length; j++) {
                 if (array[j] < array[i]) {
                     minIdx = j;
                 }
             }
-            swap(array,i,minIdx);
+            swap(array, i, minIdx);
 //           int tmp = array[i];
 //            array[i] = array[minIdx];
 //            array[minIdx] = tmp;
@@ -51,7 +51,24 @@ public class Task1 {
             System.out.println(Arrays.toString(array));
         }
     }
-    public static void swap(int[]array, int i, int j){
+
+    public static void insertion(int[] array) {
+
+
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < array[i - 1]) {
+                for (int j = i ; j > 0; j--) {
+                    if (array[j] < array[j-1]) {
+                        swap(array, j - 1, j);
+                    }
+                }
+            }
+            System.out.println(Arrays.toString(array));
+        }
+    }
+
+
+    public static void swap(int[] array, int i, int j) {
 
         int tmp = array[i];
         array[i] = array[j];
