@@ -11,8 +11,12 @@ public class Task1 {
         int[] array = {68, 48, 60, 20, 0, 41, 51, 28, 78};
 //        bibbleSort(array);
 //        selection(array);
-selection(array);
+//        selection(array);
         System.out.println(Arrays.toString(array));
+//        chetNechet(array);
+        combosort(array);
+        System.out.println(Arrays.toString(array));
+
 //        insertion(array);
 //        shaker(array);
 
@@ -39,10 +43,10 @@ selection(array);
     }
 
     public static void selection(int[] array) {
-        for (int i = 0; i < array.length-1 ; i++) {
+        for (int i = 0; i < array.length - 1; i++) {
             int minIdx = i;
-            for (int j = i ; j < array.length; j++) {
-                if (array[j] < array[minIdx]) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[j] < array[i]) {
                     minIdx = j;
                 }
             }
@@ -96,6 +100,37 @@ selection(array);
         }
         System.out.println(count);
         System.out.println(Arrays.toString(array));
+    }
+
+
+    public static void chetNechet(int[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = i % 2; j < array.length - 1; j += 2) {
+                if (array[j] > array[j + 1]) {
+                    swap(array, j, j + 1);
+                }
+            }
+        }
+    }
+
+    public static void combosort(int[] array) {
+        int step;
+        if (array.length % 2 == 0) {
+            step = array.length / 2;
+        } else {
+            step = array.length / 2 + 1;
+        }
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j + step < array.length; j++) {
+                if (array[j] > array[j + step]) {
+                    swap(array, j, j + step);
+                }
+            }
+            if(step/2>0){
+                step/=2;
+            }
+
+        }
     }
 
     public static void swap(int[] array, int i, int j) {
