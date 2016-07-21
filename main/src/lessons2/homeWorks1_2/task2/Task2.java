@@ -8,7 +8,7 @@ import java.util.Scanner;
  * Created by Ilirenon 17.07.2016.
  */
 public class Task2 {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException, InterruptedException {
         FileReader reader = new FileReader("D:\\progects/OOP/main/FileDirectory/array.txt");
         Scanner scanner = new Scanner(reader);
         String str = "";
@@ -39,5 +39,7 @@ public class Task2 {
             System.out.println();
 
         }
+
+        System.out.println(array.length+" "+ array.length);
     }
 }
