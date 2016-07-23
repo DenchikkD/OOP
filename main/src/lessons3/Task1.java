@@ -8,13 +8,14 @@ import java.util.Arrays;
  */
 public class Task1 {
     public static void main(String[] args) {
-        int[] array = {68, 48, 60, 20, 0, 41, 51, 28, 78};
+        int[] array = {68, 48, 50,60, 20, 0, 41, 51, 28, 78};
 //        bibbleSort(array);
 //        selection(array);
 //        selection(array);
         System.out.println(Arrays.toString(array));
 //        chetNechet(array);
-        combosort(array);
+//        combosort(array);
+        shell(array);
         System.out.println(Arrays.toString(array));
 
 //        insertion(array);
@@ -114,23 +115,50 @@ public class Task1 {
     }
 
     public static void combosort(int[] array) {
-        int step;
-        if (array.length % 2 == 0) {
-            step = array.length / 2;
-        } else {
-            step = array.length / 2 + 1;
-        }
-        for (int i = 0; i < array.length; i++) {
+        int step = ((array.length % 2) == 0) ? (array.length / 2) : (array.length / 2 + 1);
+        for (int i = 0; i < array.length / 2; i++) {
             for (int j = 0; j + step < array.length; j++) {
                 if (array[j] > array[j + step]) {
                     swap(array, j, j + step);
                 }
             }
-            if(step/2>0){
-                step/=2;
+            if (step > 1) {
+                step = step / 2;
+            }
+        }
+    }
+
+    public static void shell(int[] array) {
+        int step = ((array.length % 2) == 0) ? (array.length / 2) : (array.length / 2 + 1);
+
+        for (int i = step; i >0; i/=2) {
+
+            for (int j = 0; j + step < array.length; j++) {
+                if (array[j] > array[j + step]) {
+                    swap(array, j, j + step);
+                    boolean cange = true;
+
+                    System.out.println(j);
+                    int k=j;
+                    while (cange && k - step >= 0) {
+                        if (array[k - step] > array[k]) {
+                            swap(array, k - step, k);
+//                            cange = true;
+                            k -= step;
+                        }
+                        cange = false;
+                    }
+                }
+
             }
 
+
+            if (step > 1) {
+                step = step / 2;
+            }
         }
+
+
     }
 
     public static void swap(int[] array, int i, int j) {
